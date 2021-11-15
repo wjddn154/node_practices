@@ -36,3 +36,11 @@
     3) npm 모듈 : npm을 통해서 node_module에서 설치해서 사용하는 모듈
         - 로컬 베포
         - 원격 배포
+
+6. npmjs.com npm registry에 패키지 배포
+    1. 사용자 등록
+    2. 배포에
+        $ npm adduser
+        Username: ...
+        Password: ...
+        [douzone-bipa-math] $ npm publish

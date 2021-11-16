@@ -68,7 +68,7 @@ package.json 스크립트
     "debug": "nodemon index.js"
   }
 [helloweb-ex02] $ npm start         (운용시)
-[helloweb-ex02] $ npm run debug     (개발시)
+[helloweb-ex02] $ npm run debug     (개발시... Live Update)
 
 4) 디렉토리 구조
 [helloweb-ex02] $ mkdir public
@@ -96,7 +96,7 @@ package.json 스크립트
     "debug": "nodemon index.js"
   }
 [emaillist] $ npm start         (운용시)
-[emaillist] $ npm run debug     (개발시)
+[emaillist] $ npm run debug     (개발시... Live Update)
 
 4) 디렉토리 구조
 [emaillist] $ mkdir public
@@ -105,9 +105,45 @@ package.json 스크립트
 [emaillist] $ mkdir models
 [emaillist] $ mkdir views
 
+-----------------------------------------------------------
 
+10. guestbook(models based on mysql) - 기본 sql 기반
+1)
+[guestbook] npm init -y
 
+2)
+[guestbook] $ npm i express
+[guestbook] $ npm i ejs
+[guestbook] $ npm i mysql2
+[guestbook] $ npm i -D nodemon
 
+3)
+package.json 스크립트
+  "scripts": {
+    "start": "node index.js",
+    "debug": "nodemon index.js"
+  }
+[guestbook] $ npm start         (운용시)
+[guestbook] $ npm run debug     (개발시... Live Update)
+
+4) 디렉토리 구조
+[guestbook] $ mkdir public
+[guestbook] $ mkdir routes
+[guestbook] $ mkdir controllers
+[guestbook] $ mkdir models
+[guestbook] $ mkdir views
+
+------------------------------------------------------------
+
+11. mysite(models based on Sequelize) - ORM 기반
+
+1) orm(sequelize) -> js Test
+2) user(session, 인증, 접근제어), jQeury(ajax) + API
+3) views -> include(ejs)
+4) dotenv(configuration: DB connection, port, satic directory)
+5) log(winston)
+6) fileupload(multer)
+7) error 처리
 
 
 

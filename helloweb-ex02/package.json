@@ -1,0 +1,20 @@
+{
+  "name": "helloweb-ex02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "nodedemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "ejs": "^3.1.6",
+    "nodemon": "^2.0.15"
+  }
+}

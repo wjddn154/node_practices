@@ -24,5 +24,23 @@ router.route("/join").post(function(req, res){
     res.redirect("/");
 });
 
+router.route("/api").get(function(req, res) {
+    const vo = {
+        no: 10,
+        name: '둘리',
+        email: 'dooly@gmail.com',
+        gender: 'male'
+    };
+
+    // res.writeHead(200, {
+    //     'Content-type': "application/json"
+    // });
+    // res.end(JSON.stringify(vo));
+    res.send(vo);
+});
+
 module.exports = router;
+
+
+
 

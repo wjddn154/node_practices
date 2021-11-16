@@ -65,7 +65,7 @@
 package.json 스크립트
   "scripts": {
     "start": "node index.js",
-    "debug": "nodedemon index.js"
+    "debug": "nodemon index.js"
   }
 [helloweb-ex02] $ npm start         (운용시)
 [helloweb-ex02] $ npm run debug     (개발시)
@@ -73,8 +73,42 @@ package.json 스크립트
 4) 디렉토리 구조
 [helloweb-ex02] $ mkdir public
 [helloweb-ex02] $ mkdir routes
-[helloweb-ex02] $ mkdir controller
+[helloweb-ex02] $ mkdir controllers
+[helloweb-ex02] $ mkdir models
 [helloweb-ex02] $ mkdir views
+
+-----------------------------------------------------------
+
+9. emaillist(models based on mysql) - 기본 sql 기반
+1)
+[emaillist] npm init -y
+
+2)
+[emaillist] $ npm i express
+[emaillist] $ npm i ejs
+[emaillist] $ npm i mysql2
+[emaillist] $ npm i -D nodemon
+
+3)
+package.json 스크립트
+  "scripts": {
+    "start": "node index.js",
+    "debug": "nodemon index.js"
+  }
+[emaillist] $ npm start         (운용시)
+[emaillist] $ npm run debug     (개발시)
+
+4) 디렉토리 구조
+[emaillist] $ mkdir public
+[emaillist] $ mkdir routes
+[emaillist] $ mkdir controllers
+[emaillist] $ mkdir models
+[emaillist] $ mkdir views
+
+
+
+
+
 
 
 

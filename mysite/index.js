@@ -10,7 +10,9 @@ const dotenv = require('dotenv');
 dotenv.config({path: path.join(__dirname, 'config', 'app.env')});
 
 //2. Application Routers
-const applicationRouter = require('../routes'); //해당 디렉토리의 index.js 호출
+//destruction
+const { applicationRouter } = require('./routes'); //해당 디렉토리의 index.js 호출
+const { SIGTERM } = require('constants');
 
 //3. Logging
 

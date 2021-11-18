@@ -12,7 +12,7 @@ module.exports = {
             mesasge: 'unknown request'
         });
     },
-    error500: function(error, req, res, next) {
+    error500: function(err, req, res, next) {
         logger.error(err.stack);
 
         if(req.accepts('html')) {

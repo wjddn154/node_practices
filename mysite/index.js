@@ -1,11 +1,13 @@
 const http = require('http');
 const path = require('path');   //path : 코어 모듈(내장되어있는 자바 API)
 const express = require('express');
+const session = require('express-session');
 const dotenv = require('dotenv');
 
 
 //1. Enviroment Variables
 dotenv.config({path: path.join(__dirname, 'config', 'app.env')});
+dotenv.config({path: path.join(__dirname, 'config', 'db.env')});
 
 
 //2. Application Routers
@@ -20,14 +22,22 @@ const logger = require('./logging');
 
 //4. Application Setup
 const application = express()
-    //4-1. static resources
-    .use(express.static(path.join(__dirname, process.env.STATIC_RESOURCES_DIRECTORY)))
+    //4-1. Session Enviroment
+    .use(session({
+        secret: "mysite-session",
+        resave: false
+    }))
 
+    
     //4-2. request body parser
     .use(express.urlencoded({extended: true}))   //application/x-wwww-form-urlencoded
     .use(express.json())                         //application/json
+    //4-3. Multipart
+    
+    //4-4. static resources
+    .use(express.static(path.join(__dirname, process.env.STATIC_RESOURCES_DIRECTORY)))
 
-    //4-3. view engine setup
+    //4-5. view engine setup
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs');
 

@@ -109,7 +109,7 @@ package.json 스크립트
 
 10. guestbook(models based on mysql) - 기본 sql 기반
 1)
-[guestbook] npm init -y
+[guestbook] $ npm init -y
 
 2)
 [guestbook] $ npm i express

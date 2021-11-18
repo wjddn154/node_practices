@@ -1,4 +1,5 @@
 const errorRoute = require('./error');
+
 const applicationRouter = {
     setup: function(application) {
 

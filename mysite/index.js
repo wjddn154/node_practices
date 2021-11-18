@@ -4,17 +4,19 @@ const express = require('express');
 const dotenv = require('dotenv');
 
 
-
-
 //1. Enviroment Variables
 dotenv.config({path: path.join(__dirname, 'config', 'app.env')});
+
 
 //2. Application Routers
 //destruction
 const { applicationRouter } = require('./routes'); //해당 디렉토리의 index.js 호출
 const { SIGTERM } = require('constants');
 
+
 //3. Logging
+const logger = require('./logging');
+
 
 //4. Application Setup
 const application = express()
@@ -36,16 +38,16 @@ applicationRouter.setup(application);
 //6. Server Setup
 http.createServer(application)
     .on('listening', function() {
-        console.log(`http server runs on ${process.env.PORT}`);
+        logger.info(`http server runs on ${process.env.PORT}`);
     })
     .on('error', function(error) {
         switch(error.code) {
             case 'EACCESS':
-                console.log(`${process.env.PORT} requires privileges`);
+                logger.error(`${process.env.PORT} requires privileges`);
                 process.exit(1);    //0을 주면 정상종료
                 break;
             case 'EADDRINUSE':
-                console.log(`${process.env.PORT} is already in use`);
+                logger.error(`${process.env.PORT} is already in use`);
                 process.exit(1);
                 break; 
             default:

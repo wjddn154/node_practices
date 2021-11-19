@@ -45,5 +45,21 @@ module.exports = {
             conn.end();
         }
 
+    },
+    destroy: async function(guestbook) {
+        const conn = dbconn();
+        const query = util.promisify(conn.query).bind(conn);
+
+        try {
+            return await query(
+                'delete from guestbook where no = ? and password = ?',
+                Object.values(guestbook)
+            );
+        } catch(e) {
+            console.error(e);
+        } finally {
+            conn.end();
+        }
     }
+
 }

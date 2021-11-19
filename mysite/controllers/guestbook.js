@@ -41,5 +41,8 @@ module.exports = {
         } catch(e) {
             next(e);
         }        
+    },
+    spalanding: function(req, res) {
+        res.render('guestbook/index-spa');
     }
 }

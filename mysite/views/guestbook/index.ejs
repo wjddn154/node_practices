@@ -7,11 +7,10 @@
 </head>
 <body>
 	<div id="container">
-		<%-include('../includes/header') %>
+		<%-include('../includes/header')%>
 		<div id="content">
 			<div id="guestbook">
-				<form action="/guestbook" method="post">
-					<input type="hidden" name="a" value="insert">
+				<form action="/guestbook/add" method="post">
 					<table>
 						<tr>
 							<td>이름</td><td><input type="text" name="name"></td>
@@ -26,23 +25,27 @@
 					</table>
 				</form>
 				<ul>
-					<li>
-						<table>
-							<tr>
-								<td>[4]</td>
-								<td>안대혁</td>
-								<td>2015-11-10 11:22:30</td>
-								<td><a href="">삭제</a></td>
-							</tr>
-							<tr>
-								<td colspan=4>
-								안녕하세요. ^^;<br>
-								하하하하	
-								</td>
-							</tr>
-						</table>
-						<br>
-					</li>
+					<% 
+						const count = guestbooks.length;
+						guestbooks.forEach(function(guestbook, index) {
+					%>
+						<li>
+							<table>
+								<tr>
+									<td>[<%=count-index %>]</td>
+									<td><%=guestbook.name %></td>
+									<td><%=moment(guestbook.regDate).format('YYYY-MM-DD hh:mm:ss') %></td>
+									<td><a href="/guestbook/delete/<%=guestbook.no %>">삭제</a></td>
+								</tr>
+								<tr>
+									<td colspan=4>
+										<%-guestbook.message.replace(/\n/g, '<br/>') %>
+									</td>
+								</tr>
+							</table>
+							<br>
+						</li>
+					<% }) %>
 				</ul>
 			</div>
 		</div>

@@ -3,7 +3,7 @@ const path = require('path');   //path : 코어 모듈(내장되어있는 자바
 const express = require('express');
 const session = require('express-session');
 const dotenv = require('dotenv');
-
+const multer = require('multer');
 
 //1. Enviroment Variables
 dotenv.config({path: path.join(__dirname, 'config', 'app.env')});
@@ -33,6 +33,9 @@ const application = express()
     .use(express.urlencoded({extended: true}))   //application/x-wwww-form-urlencoded
     .use(express.json())                         //application/json
     //4-3. Multipart
+    .use(multer({
+        dest: path.join(__dirname, process.env.MULTER_TEMPORARY_STORE)
+    }).single('file'))
     
     //4-4. static resources
     .use(express.static(path.join(__dirname, process.env.STATIC_RESOURCES_DIRECTORY)))

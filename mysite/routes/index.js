@@ -14,7 +14,10 @@ const applicationRouter = {
 
             .use('/', require('./main'))
             .use('/user', require('./user'))
-
+            .use('/guestbook', require('./guestbook'))
+            .use('/api/guestbook', require('./guestbook-api'))
+            .use('/gallery',require('./gallery'))
+            
             //에러페이지 라우팅
             .use(errorRoute.error404)
             .use(errorRoute.error500)

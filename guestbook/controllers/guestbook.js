@@ -7,9 +7,6 @@ module.exports = {
             list: results || []
         });
     },
-    form: function(req, res) {
-        res.render('form');
-    },
     add: function(req, res) {
         console.log(req.body);
         const results = model.insert(req.body);

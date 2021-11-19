@@ -51,6 +51,9 @@ module.exports = {
         }
     },
     logout: async function(req, res, next) {
+        if(req.session.authUser == null) {
+            red
+        }
         try {
             await req.session.destroy();
             res.redirect('/');
